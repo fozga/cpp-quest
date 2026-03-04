@@ -1,3 +1,4 @@
 #include "exercise.hpp"
 
-// TODO: Implement daily exercise logic here
+// DynamicArray<T> is fully defined in the header (template class).
+// This file is intentionally minimal.
