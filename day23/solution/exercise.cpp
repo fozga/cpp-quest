@@ -1,3 +1,5 @@
 #include "exercise.hpp"
 
-// TODO: Implement daily exercise logic here
+std::string serialize_concept(const std::string& value) {
+    return "str:" + value;
+}

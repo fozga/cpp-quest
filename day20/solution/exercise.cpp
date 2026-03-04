@@ -1,3 +1,3 @@
 #include "exercise.hpp"
-
-// TODO: Implement daily exercise logic here
+// All variadic templates are defined in the header.
+// This translation unit is intentionally minimal.
