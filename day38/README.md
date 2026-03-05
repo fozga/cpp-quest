@@ -1,6 +1,6 @@
-# Task Dependencies
+# Project Layout
 
-## Overview
+## Day Overview
 
 As C++ projects grow beyond a handful of files, a clear **project layout** becomes essential for navigation, build configuration, and team collaboration. The standard convention separates code into directories by purpose — `include/` for public headers, `src/` for implementation files, and `tests/` for test drivers. Mapping logical modules to physical directories keeps dependencies visible and makes it straightforward to reason about what depends on what.
 
@@ -15,7 +15,7 @@ A well-organized layout means new contributors find code quickly, build systems 
 | 3 | Write module headers that expose minimal, focused interfaces. |
 | 4 | Build a small driver that composes multiple modules together. |
 
-## Task — Multi-Module Demo (core / util / app)
+## Task Summary
 
 Implement three logical modules inside `exercise.hpp` / `exercise.cpp`:
 
@@ -27,12 +27,13 @@ All three modules are declared in the header and defined in the source file. The
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day38/solution
-make          # build + run tests
-make asan     # AddressSanitizer build
-make valgrind # Valgrind memory check
-make clean    # remove binaries
+make day=38 test       # build and run tests
+make day=38 asan       # AddressSanitizer build
+make day=38 valgrind   # Valgrind memcheck
+make day=38 clean      # remove binaries
 ```
 
 ## Suggested Workflow
@@ -40,5 +41,5 @@ make clean    # remove binaries
 1. Read `materials/notes.md` to understand typical project layouts and module-to-directory mapping.
 2. Study `exercise.hpp` — note how the three modules are grouped by comment sections.
 3. Implement all functions in `exercise.cpp`.
-4. Run `make` and iterate until all assertions pass with zero warnings.
+4. Run `make day=38 test` and iterate until all assertions pass with zero warnings.
 5. Review `materials/links.md` for deeper reading on project organization.

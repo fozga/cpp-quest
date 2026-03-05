@@ -1,4 +1,4 @@
-# Day 40 — Links: Completing a Project
+# Final Project – Implementation — Links
 
 Resources on testing strategy, sanitizers, and finishing a C++ project with confidence.
 

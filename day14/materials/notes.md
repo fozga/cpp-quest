@@ -1,4 +1,4 @@
-# Exception Removal — Study Notes
+# Exception Removal — Notes
 
 ## A. Exceptions vs Return-Based Error Codes
 

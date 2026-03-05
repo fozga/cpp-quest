@@ -1,6 +1,6 @@
 # Dependency Inversion
 
-## Overview
+## Day Overview
 
 The **Dependency Inversion Principle** (DIP) states that high-level modules should not depend on low-level modules — both should depend on abstractions. In C++ this means coding against abstract base classes (interfaces) rather than concrete types, and injecting those dependencies through constructors. The pattern is often called **ports and adapters**: a *port* is the abstract interface your core logic uses, and an *adapter* is a concrete class that satisfies it (console output, file writer, network client, etc.).
 
@@ -15,7 +15,7 @@ DIP makes code easier to test (swap in a fake), easier to extend (add a new adap
 | 3 | Inject dependencies via constructor reference so the caller controls the lifetime. |
 | 4 | Write a test fake (`VectorLogger`) to verify behaviour without side effects. |
 
-## Task — `OrderProcessor` with Abstract `Logger`
+## Task Summary
 
 Build an **OrderProcessor** class that computes an order total and logs its progress through an injected `Logger` reference:
 
@@ -28,12 +28,13 @@ Tests use a **VectorLogger** (defined only in `tests.cpp`) that captures message
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day37/solution
-make          # build + run tests
-make asan     # AddressSanitizer build
-make valgrind # Valgrind memory check
-make clean    # remove binaries
+make day=37 test       # build and run tests
+make day=37 asan       # AddressSanitizer build
+make day=37 valgrind   # Valgrind memcheck
+make day=37 clean      # remove binaries
 ```
 
 ## Suggested Workflow
@@ -41,5 +42,5 @@ make clean    # remove binaries
 1. Read `materials/notes.md` to understand DIP, ports and adapters, and constructor injection.
 2. Study the abstract `Logger` interface in `exercise.hpp`.
 3. Implement `ConsoleLogger::info` and `OrderProcessor::process_order` in `exercise.cpp`.
-4. Run `make` and iterate until all assertions pass with zero warnings.
+4. Run `make day=37 test` and iterate until all assertions pass with zero warnings.
 5. Review `materials/links.md` for deeper reading.

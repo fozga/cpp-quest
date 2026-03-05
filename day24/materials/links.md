@@ -1,4 +1,4 @@
-# Modern Threads — Links & References
+# Modern Threads — Links
 
 Curated resources for `std::jthread` and `std::stop_token` in C++20.
 

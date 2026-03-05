@@ -1,4 +1,4 @@
-# Day 40 — Notes: Completing a Project
+# Final Project – Implementation — Notes
 
 ## A. Completing a Project
 

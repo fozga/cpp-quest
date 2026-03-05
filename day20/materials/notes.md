@@ -1,4 +1,4 @@
-# Variadic Templates — Study Notes
+# Variadic Templates — Notes
 
 ## A. Parameter Packs
 

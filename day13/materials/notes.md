@@ -1,4 +1,4 @@
-# Type-Safe Unions — Study Notes
+# Type-Safe Unions — Notes
 
 ## A. Variant Fundamentals
 
@@ -149,12 +149,12 @@ to this concept.
 Example — a tiny expression AST:
 
 ```cpp
-struct IntLit { int value; };
-struct Add    { std::unique_ptr<Node> left, right; };
-struct Mul    { std::unique_ptr<Node> left, right; };
+struct IntegerLiteral { int value; };
+struct Add             { std::unique_ptr<Node> left, right; };
+struct Mul             { std::unique_ptr<Node> left, right; };
 
 struct Node {
-    std::variant<IntLit, Add, Mul> data;
+    std::variant<IntegerLiteral, Add, Mul> data;
 };
 ```
 
@@ -164,7 +164,7 @@ recursive `std::visit`:
 
 ```cpp
 struct EvalVisitor {
-    int operator()(const IntLit& lit) const { return lit.value; }
+    int operator()(const IntegerLiteral& lit) const { return lit.value; }
     int operator()(const Add& a) const {
         return evaluate(*a.left) + evaluate(*a.right);
     }

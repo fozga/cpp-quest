@@ -70,13 +70,20 @@ buffer).
 
 ## How to Run
 
-From the repository root:
+All commands are run from the repository root using the top-level Makefile:
 
 ```bash
-make day=05 test      # build and run tests
-make day=05 asan      # build with AddressSanitizer and run
-make day=05 valgrind  # build normally, run under Valgrind
-make day=05 clean     # remove binaries
+# Build and run the test suite
+make day=05 test
+
+# Build with AddressSanitizer and run
+make day=05 asan
+
+# Build a normal binary then run under Valgrind
+make day=05 valgrind
+
+# Remove compiled artefacts
+make day=05 clean
 ```
 
 ## Suggested Workflow

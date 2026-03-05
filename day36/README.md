@@ -1,6 +1,6 @@
-# Type-Erased Tasks
+# Library Boundaries
 
-## Overview
+## Day Overview
 
 Real-world C++ libraries expose **public interfaces** while hiding their implementation details. Clean library boundaries mean consumers depend only on declarations in headers, never on internal data structures or helper functions buried in source files. Header/source separation is the primary mechanism: headers declare *what* a library can do; source files define *how* it does it.
 
@@ -15,7 +15,7 @@ When boundaries are drawn well, implementation changes never force recompilation
 | 3 | Hide implementation details in `.cpp` using the pImpl (pointer-to-implementation) idiom. |
 | 4 | Test a library exclusively through its public API. |
 
-## Task — `StringInterner` Library (pImpl)
+## Task Summary
 
 Build a **StringInterner** class that maps strings to compact integer IDs and back:
 
@@ -30,12 +30,13 @@ The class must be **move-only** (copy operations deleted, move operations defaul
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day36/solution
-make          # build + run tests
-make asan     # AddressSanitizer build
-make valgrind # Valgrind memory check
-make clean    # remove binaries
+make day=36 test       # build and run tests
+make day=36 asan       # AddressSanitizer build
+make day=36 valgrind   # Valgrind memcheck
+make day=36 clean      # remove binaries
 ```
 
 ## Suggested Workflow
@@ -43,5 +44,5 @@ make clean    # remove binaries
 1. Read `materials/notes.md` to understand library boundary concepts and the pImpl idiom.
 2. Study the header in `exercise.hpp` — note what is and isn't included.
 3. Implement the `Impl` struct and all member functions in `exercise.cpp`.
-4. Run `make` and iterate until all assertions pass with zero warnings.
+4. Run `make day=36 test` and iterate until all assertions pass with zero warnings.
 5. Review `materials/links.md` for deeper reading.

@@ -1,4 +1,4 @@
-# C++20 Concepts — Links & Resources
+# C++20 Concepts — Links
 
 The following references cover C++20 concepts and constrained templates in depth.
 

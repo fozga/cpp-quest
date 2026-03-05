@@ -111,9 +111,7 @@ These pain points directly motivated the C++20 **Concepts** feature, which
 provides a first-class syntax for constraining templates.  You will explore
 Concepts on Days 22–23.
 
----
-
-## Self-Check Questions
+## F. Self-Check Questions
 
 1. What does the acronym SFINAE stand for, and what does the rule say?
 2. What happens when `std::enable_if<false, int>::type` is referenced?

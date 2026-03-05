@@ -54,7 +54,7 @@ file descriptor (an `int` handle). The class must:
 - Follow the **Rule of 5** exactly.
 - Use **-1** as the invalid/sentinel value.
 - Be **exception-safe** and **never leak** a descriptor.
-- Provide `acquire`, `release`, and `reset` operations.
+- Provide `is_valid`, `get`, and `reset` operations.
 - Use a pair of free helper functions (`open_pseudo_file` /
   `close_pseudo_file`) that simulate OS open/close system calls.
 

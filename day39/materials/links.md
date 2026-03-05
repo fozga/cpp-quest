@@ -1,4 +1,4 @@
-# Day 39 — Links: API-First Design
+# Final Project – Design — Links
 
 Supplementary resources for designing clean C++ interfaces.
 

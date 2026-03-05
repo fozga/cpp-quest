@@ -13,8 +13,8 @@ The standard library relies on type erasure in several places:
   `any_cast`.
 - **`std::function`** — wraps any callable matching a given signature.
 
-While CRTP and Concepts (Days 25–26) resolve types at compile time, type erasure
-defers that resolution to runtime, trading some performance for maximum
+While templates and Concepts (Days 22–23) resolve types at compile time, type
+erasure defers that resolution to runtime, trading some performance for maximum
 flexibility and decoupled interfaces.
 
 ## Learning Objectives

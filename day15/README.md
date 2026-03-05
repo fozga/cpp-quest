@@ -2,15 +2,23 @@
 
 ## Day Overview
 
+Welcome to **Day 15** of the 40-day C++ quest. Today you go beyond simple
+inline lambdas to explore the full power of C++ closures — mutable captures,
+capture initializers, and shared-pointer-based state management.
+
 Lambdas in C++ are more than inline function literals — they are full closure
-objects with captured state stored as data members of a compiler-generated class.
-This day explores the mechanics behind capture-by-value and capture-by-reference,
-the default `const`-ness of the call operator, how `mutable` unlocks stateful
-lambdas, and how capture initializers let you move resources and create new
-members on the fly. These techniques are the building blocks for iterators,
-ranges, and functional-style pipelines.
+objects with captured state stored as data members of a compiler-generated
+class. This day explores the mechanics behind capture-by-value and
+capture-by-reference, the default `const`-ness of the call operator, how
+`mutable` unlocks stateful lambdas, and how capture initializers let you move
+resources and create new members on the fly. These techniques are the building
+blocks for iterators, ranges, and functional-style pipelines.
+
+---
 
 ## Learning Objectives
+
+By the end of this day you will be able to:
 
 - Understand that a lambda expression produces an unnamed closure class with an
   `operator()` and captured variables as data members.
@@ -27,6 +35,8 @@ ranges, and functional-style pipelines.
 - Recognise that copying a mutable lambda produces an independent copy whose
   state diverges from the original.
 
+---
+
 ## Task Summary
 
 Implement a **data-aggregator factory**. The factory function `make_aggregator`
@@ -37,6 +47,8 @@ average) from the handle.
 
 The implementation exercises mutable captures, capture initializers, and
 shared-pointer-based state management.
+
+---
 
 ## Implementation Requirements
 
@@ -49,21 +61,38 @@ shared-pointer-based state management.
 | `make_aggregator(label)` | Factory: creates shared impl, returns handle with capturing lambda |
 | `get_snapshot(handle)` | Reads current state, computes average, returns snapshot |
 
+---
+
 ## How to Run
 
-From the repository root:
+All commands are run from the repository root using the top-level Makefile:
 
 ```bash
-make day=15 test       # build and run tests
-make day=15 asan       # AddressSanitizer build
-make day=15 valgrind   # Valgrind memcheck
-make day=15 clean      # remove binaries
+# Build and run the test suite
+make day=15 test
+
+# Build with AddressSanitizer and run
+make day=15 asan
+
+# Build a normal binary then run under Valgrind
+make day=15 valgrind
+
+# Remove compiled artefacts
+make day=15 clean
 ```
+
+---
 
 ## Suggested Workflow
 
-1. Read `materials/notes.md` to review capture modes and mutable lambdas.
-2. Study the structs in `exercise.hpp`.
-3. Implement `make_aggregator` and `get_snapshot` in `exercise.cpp`.
-4. Run `make day=15 test` and iterate until all assertions pass.
-5. Run the sanitizer and valgrind targets to verify memory safety.
+1. **Read** `materials/notes.md` to review capture modes and mutable lambdas.
+2. **Study** the structs in `solution/exercise.hpp`.
+3. **Implement** `make_aggregator` and `get_snapshot` in
+   `solution/exercise.cpp`.
+4. **Compile** with `make day=15 test` — fix any compiler errors.
+5. **Run** the tests and make every assertion pass.
+6. **Run** under ASan (`make day=15 asan`) and Valgrind
+   (`make day=15 valgrind`) to confirm clean execution.
+7. **Answer** the self-check questions in `materials/notes.md` without
+   looking at the notes.
+8. **Browse** the links in `materials/links.md` for deeper exploration.

@@ -1,4 +1,4 @@
-# Deadlock Prevention — Links & References
+# Deadlock Prevention — Links
 
 Curated resources for understanding deadlocks and `std::scoped_lock` in C++.
 

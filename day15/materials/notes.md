@@ -1,4 +1,4 @@
-# Advanced Lambdas — Study Notes
+# Advanced Lambdas — Notes
 
 ## A. Lambdas as Closure Objects
 

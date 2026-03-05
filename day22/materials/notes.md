@@ -1,4 +1,4 @@
-# C++20 Concepts — Study Notes
+# C++20 Concepts — Notes
 
 ## A. What Are Concepts?
 
