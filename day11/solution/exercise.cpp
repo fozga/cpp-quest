@@ -1,3 +1,5 @@
 #include "exercise.hpp"
 
-// TODO: Implement daily exercise logic here
+// AnimalBase<Derived>, Dog, Cat, and free function templates are fully
+// defined in the header (template / inline definitions).
+// This translation unit is intentionally minimal.

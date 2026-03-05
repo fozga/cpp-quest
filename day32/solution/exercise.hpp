@@ -1,3 +1,8 @@
 #pragma once
+#include <string>
+#include <string_view>
+#include <utility>
 
-// TODO: Declare daily exercise structures and functions here
+std::string trim(std::string_view s);
+std::string to_upper(std::string_view s);
+std::pair<std::string, std::string> split_once(std::string_view s, char delimiter);
