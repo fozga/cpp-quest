@@ -1,4 +1,4 @@
-# Links — Optional Values
+# Optional Values — Links
 
 Curated resources for understanding `std::optional` and its role in modern
 C++ design.

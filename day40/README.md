@@ -1,6 +1,6 @@
-# Lock-Free Optimization
+# Final Project – Implementation
 
-## Overview
+## Day Overview
 
 This is the **capstone exercise** of the course — congratulations on reaching the finish line! Today the focus is on **correctness, clarity, and thorough testing**. You will take the TaskList API designed on Day 39 and ensure every path — success and failure — is exercised by a comprehensive test suite.
 
@@ -15,7 +15,7 @@ This project ties together the themes of the entire course: RAII ownership, valu
 | 3 | Write comprehensive tests covering normal usage, edge cases, and state transitions. |
 | 4 | Run the program under sanitizers to verify memory safety. |
 
-## Task — Fully Implement and Test the TaskList API
+## Task Summary
 
 The header (`exercise.hpp`) and implementation (`exercise.cpp`) are identical to Day 39. Your job today is to write **thorough tests** in `tests.cpp` that cover:
 
@@ -29,18 +29,19 @@ Every assertion that passes prints a `[PASS]` line so you can see progress at a 
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day40/solution
-make          # build + run tests
-make asan     # AddressSanitizer build
-make valgrind # Valgrind memory check
-make clean    # remove binaries
+make day=40 test       # build and run tests
+make day=40 asan       # AddressSanitizer build
+make day=40 valgrind   # Valgrind memcheck
+make day=40 clean      # remove binaries
 ```
 
 ## Suggested Workflow
 
 1. Read `materials/notes.md` for tips on writing complete test suites.
 2. Review `exercise.hpp` to recall the full API surface.
-3. Study `tests.cpp` — run it and confirm every `[PASS]` line prints.
-4. Try `make asan` to verify there are no memory errors.
+3. Study `tests.cpp` — run `make day=40 test` and confirm every `[PASS]` line prints.
+4. Try `make day=40 asan` to verify there are no memory errors.
 5. Celebrate — you have completed the course!

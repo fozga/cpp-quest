@@ -1,4 +1,4 @@
-# SFINAE to Concepts — Links & Resources
+# SFINAE to Concepts — Links
 
 The following references cover the migration from SFINAE to C++20 concepts.
 

@@ -1,4 +1,4 @@
-# Exception Removal — Links & Resources
+# Exception Removal — Links
 
 Curated references on `std::expected`, error handling strategies, and the rationale for
 moving away from exceptions in performance-sensitive C++.

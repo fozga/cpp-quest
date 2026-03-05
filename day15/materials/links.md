@@ -1,13 +1,13 @@
-# Advanced Lambdas — Links & Resources
+# Advanced Lambdas — Links
 
 Supplementary reading on lambda captures, mutable closures, and capture
 initializers.
 
 - [cppreference — Lambda expressions](https://en.cppreference.com/w/cpp/language/lambda)
   Comprehensive reference covering syntax, capture modes, and `mutable`.
-- [Herb Sutter — "Lambdas, Lambdas Everywhere"](https://herbsutter.com/2013/05/29/gotw-5-solution-overriding-virtual-functions/)
-  Practical guidance on lambda design from a member of the C++ standards
-  committee.
+- [C++ Core Guidelines — F.50–F.52: Lambda rules](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-capture-vs-overload)
+  Official guidelines covering capture defaults, lifetime safety, and when to
+  prefer named functions over lambdas.
 - [Jason Turner — C++ Weekly: Lambda Captures](https://www.youtube.com/watch?v=cEQJCOpbGTk)
   Short video walkthrough of capture-by-value, capture-by-reference, and init
   captures.

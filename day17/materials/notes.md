@@ -81,7 +81,7 @@ auto collected = some_view | std::ranges::to<std::vector>();  // C++23
 Until your toolchain supports C++23, the loop-and-push-back pattern is the
 standard technique.
 
-## Self-Check Questions
+## E. Self-Check Questions
 
 1. What two member functions make a type satisfy the *range* concept?
 2. How does a *view* differ from a general range?

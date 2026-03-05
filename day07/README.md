@@ -70,13 +70,20 @@ A small `Widget` struct is provided for testing construction through
 
 ## How to Run
 
-From the repository root:
+All commands are run from the repository root using the top-level Makefile:
 
 ```bash
-make day=07 test      # build and run tests
-make day=07 asan      # build with AddressSanitizer and run
-make day=07 valgrind  # build normally, run under Valgrind
-make day=07 clean     # remove binaries
+# Build and run the test suite
+make day=07 test
+
+# Build with AddressSanitizer and run
+make day=07 asan
+
+# Build a normal binary then run under Valgrind
+make day=07 valgrind
+
+# Remove compiled artefacts
+make day=07 clean
 ```
 
 ## Suggested Workflow

@@ -49,7 +49,7 @@ destroys it.
 
 ## How to Run
 
-From the repository root:
+All commands are run from the repository root using the top-level Makefile:
 
 ```bash
 # Compile and run the tests

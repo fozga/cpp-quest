@@ -1,4 +1,4 @@
-# Variadic Templates — Links & Resources
+# Variadic Templates — Links
 
 The following references cover variadic templates and fold expressions in depth.
 

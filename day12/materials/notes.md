@@ -1,4 +1,4 @@
-# Notes — Optional Values
+# Optional Values — Notes
 
 ## A. What is `std::optional`?
 

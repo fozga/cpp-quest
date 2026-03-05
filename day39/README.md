@@ -1,6 +1,6 @@
-# Execution Engine
+# Final Project – Design
 
-## Overview
+## Day Overview
 
 Before writing a single line of implementation, **API-first design** asks you to describe the public surface of your code — the types callers will use, the functions they will call, and the contracts those functions uphold. Designing before implementing clarifies responsibilities, exposes missing operations early, and provides a natural roadmap for tests.
 
@@ -15,7 +15,7 @@ Today you will draft the API for a small **TaskList** tracker and produce a comp
 | 3 | Plan for testability by choosing return types that are easy to assert on. |
 | 4 | Decide where RAII, value semantics, and error handling will appear. |
 
-## Task — Design a TaskList Tracker
+## Task Summary
 
 Define two types inside `exercise.hpp`:
 
@@ -32,12 +32,13 @@ Provide stub (or full) implementations in `exercise.cpp` so the project compiles
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day39/solution
-make          # build + run tests
-make asan     # AddressSanitizer build
-make valgrind # Valgrind memory check
-make clean    # remove binaries
+make day=39 test       # build and run tests
+make day=39 asan       # AddressSanitizer build
+make day=39 valgrind   # Valgrind memcheck
+make day=39 clean      # remove binaries
 ```
 
 ## Suggested Workflow
@@ -45,5 +46,5 @@ make clean    # remove binaries
 1. Read `materials/notes.md` to understand API-first design principles.
 2. Study `exercise.hpp` — note the enum, the struct, and the class interface.
 3. Implement every declared function in `exercise.cpp`.
-4. Run `make` and iterate until all assertions pass with zero warnings.
+4. Run `make day=39 test` and iterate until all assertions pass with zero warnings.
 5. Review `materials/links.md` for further reading on interface design.

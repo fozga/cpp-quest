@@ -1,4 +1,4 @@
-# Thread Pool Foundation
+# Static Analysis & Code Style
 
 ## Day Overview
 
@@ -41,12 +41,13 @@ Implement two utility functions with clean, analysis-friendly style:
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day34/solution
-make          # compile and run tests
-make asan     # compile with AddressSanitizer and run
-make valgrind # run under Valgrind
-make clean    # remove binaries
+make day=34 test       # build and run tests
+make day=34 asan       # AddressSanitizer build
+make day=34 valgrind   # Valgrind memcheck
+make day=34 clean      # remove binaries
 ```
 
 ## Suggested Workflow

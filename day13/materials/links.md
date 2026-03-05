@@ -1,4 +1,4 @@
-# Type-Safe Unions — Further Reading
+# Type-Safe Unions — Links
 
 Curated resources for deeper understanding of `std::variant`, `std::visit`,
 and discriminated-union patterns in modern C++.

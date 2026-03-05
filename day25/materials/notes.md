@@ -71,9 +71,7 @@ try {
 The consumer's `fut.get()` rethrows the stored exception as if it were thrown
 locally.
 
----
-
-## Self-Check Questions
+## F. Self-Check Questions
 
 1. What happens if you call `future::get()` a second time on the same future?
 2. What exception is thrown if a promise is destroyed without calling `set_value()` or `set_exception()`?

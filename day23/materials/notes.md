@@ -1,4 +1,4 @@
-# SFINAE to Concepts — Study Notes
+# SFINAE to Concepts — Notes
 
 ## A. From SFINAE to Concepts: Side-by-Side
 

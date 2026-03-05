@@ -1,4 +1,4 @@
-# Modern Threads — Study Notes
+# Modern Threads — Notes
 
 ## A. `std::thread` vs `std::jthread`
 

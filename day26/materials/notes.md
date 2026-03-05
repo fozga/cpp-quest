@@ -1,4 +1,4 @@
-# Deadlock Prevention — Study Notes
+# Deadlock Prevention — Notes
 
 ## A. The Four Coffman Conditions
 

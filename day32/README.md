@@ -1,4 +1,4 @@
-# C++20 Coroutines
+# Unit Testing Mindset
 
 ## Day Overview
 
@@ -48,12 +48,13 @@ tests:
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day32/solution
-make          # compile and run tests
-make asan     # compile with AddressSanitizer and run
-make valgrind # run under Valgrind
-make clean    # remove binaries
+make day=32 test       # build and run tests
+make day=32 asan       # AddressSanitizer build
+make day=32 valgrind   # Valgrind memcheck
+make day=32 clean      # remove binaries
 ```
 
 ## Suggested Workflow

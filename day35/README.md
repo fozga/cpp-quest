@@ -1,4 +1,4 @@
-# Concurrent Queue
+# Putting It All Together
 
 ## Day Overview
 
@@ -33,12 +33,13 @@ counters**.
 
 ## How to Run
 
+From the repository root:
+
 ```bash
-cd day35/solution
-make          # compile and run tests
-make asan     # compile with AddressSanitizer and run
-make valgrind # run under Valgrind
-make clean    # remove binaries
+make day=35 test       # build and run tests
+make day=35 asan       # AddressSanitizer build
+make day=35 valgrind   # Valgrind memcheck
+make day=35 clean      # remove binaries
 ```
 
 ## Suggested Workflow
@@ -46,5 +47,5 @@ make clean    # remove binaries
 1. Read `exercise.hpp` to understand the `CounterService` interface.
 2. Study `tests.cpp` to see the expected behaviour — pay attention to error-path tests.
 3. Implement each method in `exercise.cpp`, compiling and testing after each one.
-4. Run under AddressSanitizer (`make asan`) to verify no memory errors.
+4. Run under AddressSanitizer (`make day=35 asan`) to verify no memory errors.
 5. Review: is every variable `const` where possible? Are names clear? Is there dead code?
