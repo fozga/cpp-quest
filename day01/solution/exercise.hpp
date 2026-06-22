@@ -3,6 +3,8 @@
 #include <string>
 #include <utility>
 #include <stdexcept>
+#include <exception>
+#include <iostream>
 
 /*
 Day 01 Task: Pure RAII + Rule of 5
@@ -35,12 +37,10 @@ and noexcept move operations.
 int  open_pseudo_file(const std::string& name);
 void close_pseudo_file(int fd);
 
-// TODO: Implement this class in exercise.cpp.
 class FileHandle {
-    int fd_;
+    int fd_ {-1};
 
 public:
-    // TODO: Constructs an invalid handle.
     FileHandle() = default;
 
     // TODO: Takes ownership of an existing descriptor.
@@ -53,7 +53,6 @@ public:
     FileHandle(const FileHandle&)            = delete;
     FileHandle& operator=(const FileHandle&) = delete;
 
-    // TODO: Transfers ownership from other; leaves other invalid.
     FileHandle(FileHandle&& other) noexcept;
     FileHandle& operator=(FileHandle&& other) noexcept;
 
@@ -63,6 +62,5 @@ public:
     // TODO: Returns the raw descriptor. Throws std::runtime_error if invalid.
     int get() const;
 
-    // TODO: Closes the current descriptor (if valid) and stores new_handle.
-    void reset(int new_handle = -1);
+    void reset(const int new_handle = -1);
 };
