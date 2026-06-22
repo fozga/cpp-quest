@@ -16,45 +16,37 @@ void close_pseudo_file(int fd) {
 
 // ── FileHandle special members ──────────────────────────────────────────
 
-FileHandle::FileHandle(int handle)
-    : fd_{handle} {}
-
-FileHandle::~FileHandle() {
-    if (fd_ != -1) {
-        close_pseudo_file(fd_);
-    }
+FileHandle::FileHandle(int handle) {
+    // TODO: Store handle as owned descriptor.
+    (void)handle;
 }
 
-FileHandle::FileHandle(FileHandle&& other) noexcept
-    : fd_{other.fd_} {
-    other.fd_ = -1;
+FileHandle::~FileHandle() {
+    // TODO: Release descriptor if valid. Do not throw.
+}
+
+FileHandle::FileHandle(FileHandle&& other) noexcept {
+    // TODO: Transfer ownership from other and invalidate other.
 }
 
 FileHandle& FileHandle::operator=(FileHandle&& other) noexcept {
-    if (this != &other) {
-        reset();
-        fd_ = other.fd_;
-        other.fd_ = -1;
-    }
+    // TODO: Handle self-assignment, release current resource,
+    // then transfer ownership from other and invalidate other.
     return *this;
 }
 
 // ── FileHandle public interface ─────────────────────────────────────────
 
 bool FileHandle::is_valid() const noexcept {
-    return fd_ != -1;
+    // TODO: Return true when fd_ is a valid descriptor.
+    return false;
 }
 
 int FileHandle::get() const {
-    if (fd_ == -1) {
-        throw std::runtime_error("FileHandle::get() called on invalid handle");
-    }
-    return fd_;
+    // TODO: Return fd_ or throw std::runtime_error when invalid.
+    throw std::runtime_error("TODO: implement FileHandle::get()");
 }
 
 void FileHandle::reset(int new_handle) {
-    if (fd_ != -1) {
-        close_pseudo_file(fd_);
-    }
-    fd_ = new_handle;
+    // TODO: Close current descriptor (if valid), then store new_handle.
 }

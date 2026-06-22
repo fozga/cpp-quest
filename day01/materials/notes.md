@@ -41,6 +41,83 @@ Three commonly cited exception-safety levels:
 | **Strong** | If the operation throws, the program state is unchanged. |
 | **Basic** | If the operation throws, invariants are preserved but the state may have changed. |
 
+### 1) No-Throw Guarantee (Strongest)
+
+The operation is guaranteed not to emit exceptions.
+
+What this means in practice:
+
+- The caller never needs `try/catch` for that operation.
+- The operation can be safely used during stack unwinding.
+- It is ideal for cleanup paths (`~T()`, `close`, `reset`, `swap`).
+
+Typical examples:
+
+- Destructors should not throw.
+- Move operations are often marked `noexcept` so containers can move elements
+   during reallocation.
+- `swap` for resource-owning types should be `noexcept` whenever possible.
+
+Design note:
+
+If an operation might fail internally, convert failure into a non-throwing
+policy (log, error code, status flag) rather than throwing.
+
+### 2) Strong Guarantee (Commit-or-Rollback)
+
+If an exception occurs, the observable state is exactly as it was before the
+operation started.
+
+This is often called a **transactional** behavior:
+
+- Either the operation fully succeeds (commit),
+- or it fails and leaves no partial changes (rollback).
+
+Common implementation pattern:
+
+1. Build new state in temporaries (which may throw).
+2. Commit changes with a no-throw step (usually `swap`).
+
+Example sketch:
+
+```cpp
+void set_name(std::string s) {   // pass-by-value may throw before body runs
+      name_.swap(s);               // no-throw commit step
+}
+```
+
+If construction of `s` throws, `name_` is unchanged. If construction succeeds,
+`swap` commits safely.
+
+### 3) Basic Guarantee (Minimum Acceptable)
+
+If an exception occurs:
+
+- No resource leaks occur.
+- Object invariants remain valid.
+- But some state changes may already be visible.
+
+In short, the object is still usable, but its exact value may differ from the
+pre-call value.
+
+Typical scenario:
+
+- A multi-step update succeeds for early steps, then later allocation fails.
+- The object still satisfies class invariants, but ends in a partially updated
+   value.
+
+This level is acceptable for many mutating operations when strong guarantee
+would be too expensive.
+
+### Mental Model
+
+- **No-throw**: "cannot fail by exception"
+- **Strong**: "all-or-nothing"
+- **Basic**: "valid-but-possibly-changed"
+
+When documenting APIs, explicitly state which guarantee each mutating function
+provides. Ambiguity here leads to subtle bugs in caller code.
+
 ---
 
 ## B. The Rule of Three / Five / Zero
