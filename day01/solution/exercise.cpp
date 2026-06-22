@@ -1,4 +1,6 @@
 #include "exercise.hpp"
+#include <exception>
+#include <iostream>
 
 // ── Pseudo-OS helpers ───────────────────────────────────────────────────
 
@@ -30,19 +32,33 @@ FileHandle::~FileHandle() {
         }
         catch (const std::exception& ex)
         {
-            std::cerr << "Closing failed: " << ex.what();
+            std::cerr << "[ERROR] Destructor failed: " << ex.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "[ERROR] Destructor failed with an unknown exception." << std::endl;
         }
     }
 }
 
-FileHandle::FileHandle(FileHandle&& other) noexcept {
-    this->reset(other.fd_);
-    other.fd_ = -1;
+FileHandle::FileHandle(FileHandle&& other) noexcept : fd_{other.fd_} {
+        other.fd_ = -1;
 }
 
 FileHandle& FileHandle::operator=(FileHandle&& other) noexcept {
-    this->reset(other.fd_);
-    other.fd_ = -1;
+    if (this != &other){
+        
+        try
+        {
+            close_pseudo_file(fd_);
+        }
+        catch (const std::exception& ex)
+        {
+            std::cerr << "[ERROR] Move assignment failed: " << ex.what() << std::endl;
+        }
+        this->fd_ = other.fd_;
+        other.fd_ = -1;
+    }
     return *this;
 }
 
@@ -56,7 +72,6 @@ bool FileHandle::is_valid() const noexcept {
 }
 
 int FileHandle::get() const {
-    // TODO: Return fd_ or throw std::runtime_error when invalid.
     if (!is_valid()){
         throw std::runtime_error("Invalid file handle");
     }
@@ -67,7 +82,10 @@ int FileHandle::get() const {
 }
 
 void FileHandle::reset(const int new_handle) {
-    // TODO: Close current descriptor (if valid), then store new_handle.
+    if (new_handle == fd_)
+    {
+        return;
+    }
     if (is_valid())
     {
         close_pseudo_file(fd_);

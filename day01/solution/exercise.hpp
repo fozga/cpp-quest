@@ -1,10 +1,6 @@
 #pragma once
 
 #include <string>
-#include <utility>
-#include <stdexcept>
-#include <exception>
-#include <iostream>
 
 /*
 Day 01 Task: Pure RAII + Rule of 5
@@ -43,10 +39,8 @@ class FileHandle {
 public:
     FileHandle() = default;
 
-    // TODO: Takes ownership of an existing descriptor.
     explicit FileHandle(int handle);
 
-    // TODO: Releases the descriptor if valid. Never throws.
     ~FileHandle();
 
     // Unique ownership - copying is not allowed.
@@ -56,10 +50,8 @@ public:
     FileHandle(FileHandle&& other) noexcept;
     FileHandle& operator=(FileHandle&& other) noexcept;
 
-    // TODO: Returns true when the handle refers to an open descriptor.
     bool is_valid() const noexcept;
 
-    // TODO: Returns the raw descriptor. Throws std::runtime_error if invalid.
     int get() const;
 
     void reset(const int new_handle = -1);
